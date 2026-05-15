@@ -6,8 +6,11 @@ const API_BASE = CODESPACE_NAME
   : 'http://localhost:8000';
 const API_URL = `${API_BASE}/api/workouts/`;
 
+const WORKOUT_COLORS = ['primary', 'success', 'warning', 'danger', 'info', 'secondary'];
+
 function Workouts() {
   const [workouts, setWorkouts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     console.log('Fetching workouts from:', API_URL);
@@ -16,26 +19,44 @@ function Workouts() {
       .then(data => {
         console.log('Workouts data fetched:', data);
         setWorkouts(Array.isArray(data) ? data : data.results || []);
+        setLoading(false);
       })
-      .catch(err => console.error('Error fetching workouts:', err));
+      .catch(err => {
+        console.error('Error fetching workouts:', err);
+        setLoading(false);
+      });
   }, []);
 
   return (
     <div>
-      <h2>Workouts</h2>
-      <div className="row">
-        {workouts.map(workout => (
-          <div className="col-md-4 mb-3" key={workout.id}>
-            <div className="card h-100">
-              <div className="card-body">
-                <h5 className="card-title">{workout.name}</h5>
-                <p className="card-text">{workout.description}</p>
-                <span className="badge bg-primary">{workout.duration} min</span>
+      <h2 className="page-heading">💪 Workouts</h2>
+      {loading ? (
+        <div className="text-center py-4"><div className="spinner-border text-primary" role="status" /></div>
+      ) : (
+        <div className="row g-3">
+          {workouts.map((workout, index) => {
+            const color = WORKOUT_COLORS[index % WORKOUT_COLORS.length];
+            return (
+              <div className="col-md-4 col-sm-6" key={workout.id}>
+                <div className="card h-100">
+                  <div className={`card-header bg-${color} text-${color === 'warning' ? 'dark' : 'white'}`}>
+                    <h5 className="card-title mb-0 fw-bold">💪 {workout.name}</h5>
+                  </div>
+                  <div className="card-body d-flex flex-column">
+                    <p className="card-text flex-grow-1">{workout.description}</p>
+                    <div className="mt-auto d-flex justify-content-between align-items-center">
+                      <span className={`badge bg-${color} text-${color === 'warning' ? 'dark' : 'white'}`}>
+                        ⏱ {workout.duration} min
+                      </span>
+                      <button className={`btn btn-outline-${color} btn-sm`}>View Details</button>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

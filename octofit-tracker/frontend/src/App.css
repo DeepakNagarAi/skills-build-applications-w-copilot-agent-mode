@@ -1,0 +1,84 @@
+/* OctoFit Tracker - App Styles */
+
+body {
+  background-color: #f0f2f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+}
+
+/* Navbar */
+.navbar-brand img {
+  border-radius: 50%;
+}
+
+.navbar .nav-link.active {
+  font-weight: 600;
+  border-bottom: 2px solid #fff;
+}
+
+/* Page headings */
+.page-heading {
+  border-left: 4px solid #0d6efd;
+  padding-left: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Cards */
+.card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Tables */
+.table thead th {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.table-responsive {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Leaderboard rank badges */
+.rank-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.rank-1 { background-color: #ffd700; color: #333; }
+.rank-2 { background-color: #c0c0c0; color: #333; }
+.rank-3 { background-color: #cd7f32; color: #fff; }
+.rank-other { background-color: #e9ecef; color: #555; }
+
+/* Welcome page */
+.welcome-hero {
+  background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+  color: white;
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+}
+
+/* Footer */
+.app-footer {
+  background-color: #212529;
+  color: #adb5bd;
+  padding: 1rem 0;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
