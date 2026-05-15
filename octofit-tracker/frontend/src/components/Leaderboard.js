@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+const CODESPACE_NAME = process.env.REACT_APP_CODESPACE_NAME || '';
+const API_BASE = CODESPACE_NAME
+  ? `https://${CODESPACE_NAME}-8000.app.github.dev`
+  : 'http://localhost:8000';
 
 function Leaderboard() {
   const [entries, setEntries] = useState([]);
