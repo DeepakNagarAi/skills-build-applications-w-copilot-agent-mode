@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 const CODESPACE_NAME = process.env.REACT_APP_CODESPACE_NAME || '';
-const API_BASE = CODESPACE_NAME
-  ? `https://${CODESPACE_NAME}-8000.app.github.dev`
-  : 'http://localhost:8000';
-const API_URL = `${API_BASE}/api/activities/`;
+const API_URL = CODESPACE_NAME
+  ? `https://${CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+  : 'http://localhost:8000/api/activities/';
 
 const ACTIVITY_ICONS = {
   running: '🏃',
