@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-octofit-tracker-secret-key-change-in-production'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 if os.environ.get('CODESPACE_NAME'):
     ALLOWED_HOSTS.append(f"{os.environ.get('CODESPACE_NAME')}-8000.app.github.dev")
 
@@ -67,8 +67,9 @@ DATABASES = {
 }
 
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_ALL_METHODS = True
+CORS_ALLOW_METHODS = ['*']
 CORS_ALLOW_HEADERS = ['*']
+CORS_ALLOW_CREDENTIALS = True
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
