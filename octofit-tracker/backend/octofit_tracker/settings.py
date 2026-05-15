@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'djongo',
     'octofit_tracker',
 ]
 
@@ -67,7 +68,14 @@ DATABASES = {
 }
 
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_METHODS = ['*']
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
 CORS_ALLOW_HEADERS = ['*']
 CORS_ALLOW_CREDENTIALS = True
 
