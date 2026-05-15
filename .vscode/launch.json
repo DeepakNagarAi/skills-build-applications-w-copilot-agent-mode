@@ -11,10 +11,28 @@
                 "0.0.0.0:8000"
             ],
             "django": true,
+            "cwd": "${workspaceFolder}/octofit-tracker/backend",
             "env": {
-                "DJANGO_SETTINGS_MODULE": "octofit_tracker.settings"
+                "DJANGO_SETTINGS_MODULE": "octofit_tracker.settings",
+                "PYTHONPATH": "${workspaceFolder}/octofit-tracker/backend"
             },
-            "python": "${workspaceFolder}/octofit-tracker/backend/venv/bin/python"
+            "python": "${workspaceFolder}/octofit-tracker/backend/venv/bin/python3"
+        },
+        {
+            "name": "React Frontend",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["start"],
+            "cwd": "${workspaceFolder}/octofit-tracker/frontend",
+            "env": {
+                "BROWSER": "none"
+            },
+            "serverReadyAction": {
+                "pattern": "Local:.*:(\\d+)",
+                "uriFormat": "http://localhost:%s",
+                "action": "openExternally"
+            }
         }
     ]
 }
