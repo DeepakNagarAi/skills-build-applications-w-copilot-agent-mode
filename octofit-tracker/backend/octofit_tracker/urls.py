@@ -25,6 +25,7 @@ def api_root(request, format=None):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', api_root, name='api-root'),
+    path('', api_root, name='api-root'),
+    path('api/', api_root, name='api-root-prefix'),
     path('api/', include('octofit_tracker.app_urls')),
 ]
